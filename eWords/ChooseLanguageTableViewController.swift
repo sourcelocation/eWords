@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseLanguageTableViewController: UITableViewController {
+class ChooseLanguageTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let languages = [["English (US)", "en-US", "en", "English"],
                      ["English (UK)", "en-GB", "en", "English"],
@@ -47,16 +47,16 @@ class ChooseLanguageTableViewController: UITableViewController {
         super.viewDidLoad()
         
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return languages.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = languages[indexPath.row][0]
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         GeneralData.sharedInstance.foreignLanguageCode = languages[indexPath.row][1]
         GeneralData.sharedInstance.nativeLanguageCode = Locale.current.languageCode
         self.dismiss(animated: true, completion: nil)

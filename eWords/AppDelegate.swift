@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadUserWords()
         if UserDefaults.standard.object(forKey: "appVersion") != nil {
             runConverter()
-        }
+        } 
         return true
     }
 
@@ -54,12 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         saveUserWords()
     }
-    
     func saveUserWords(){
         let userWordsData = try? JSONEncoder().encode(GeneralData.sharedInstance.userWords)
         let favoritesData = try? JSONEncoder().encode(GeneralData.sharedInstance.favoriteWords)
         UserDefaults.standard.set(userWordsData, forKey: "userWords")
         UserDefaults.standard.set(favoritesData, forKey: "favorites")
+        print("saved!")
     }
     func loadUserWords(){
         let userWordsData = UserDefaults.standard.data(forKey: "userWords")
@@ -72,6 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let favoriteArray = try? JSONDecoder().decode([Word].self, from: favoriteData!)
             GeneralData.sharedInstance.favoriteWords = favoriteArray
         }
+    }
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveUserWords()
     }
 
 }

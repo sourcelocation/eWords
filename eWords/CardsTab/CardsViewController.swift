@@ -25,9 +25,32 @@ class CardsViewController: UIViewController {
         }
     }
     var words:[Word]?
-    
+    @IBAction func starPressed(_ sender: UIButton) {
+        if words?.count ?? 0 != 0 {
+            let word = wordOnCard!
+            let results = GeneralData.sharedInstance.favoriteWords?.filter({ (favoriteWord) -> Bool in
+                return favoriteWord.foreignWord == word.foreignWord && favoriteWord.nativeWord == word.nativeWord
+            })
+            if results?.count ?? 0 > 0 {
+                GeneralData.sharedInstance.favoriteWords = GeneralData.sharedInstance.favoriteWords?.filter({ (favoriteWord) -> Bool in
+                    return favoriteWord.foreignWord != word.foreignWord && favoriteWord.nativeWord != word.nativeWord
+                })
+            } else {
+                if GeneralData.sharedInstance.favoriteWords != nil {
+                    GeneralData.sharedInstance.favoriteWords?.append(word)
+                } else {
+                    GeneralData.sharedInstance.favoriteWords = [word]
+                }
+            }
+            if word.isFavorite {
+                sender.setImage(UIImage(named: "starFilled"), for: [])
+            } else {
+                sender.setImage(UIImage(named: "starEmpty"), for: [])
+            }
+        }
+    }
+    @IBOutlet weak var star: UIButton!
     @IBOutlet weak var collectionNameLabel: UILabel!
-    
     @IBOutlet weak var worldLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     
@@ -38,6 +61,7 @@ class CardsViewController: UIViewController {
     }
     @IBAction func speakWordButtonPressed(_ sender: UIButton) {
         if !isAutoPlayEnabled {
+            
             let utterance = AVSpeechUtterance(string: wordOnCard?.foreignWord ?? "")
             synth.stopSpeaking(at: AVSpeechBoundary.immediate)
             utterance.voice = AVSpeechSynthesisVoice(language: GeneralData.sharedInstance.foreignLanguageCode ?? "en-US")
@@ -48,11 +72,13 @@ class CardsViewController: UIViewController {
     @IBAction func autoPlayButtonPressed(_ sender: UIButton) {
         isAutoPlayEnabled.toggle()
         if isAutoPlayEnabled {
+            UIApplication.shared.isIdleTimerDisabled = true
             nextWord()
             sender.setImage(UIImage(named: "pause-button"), for: [])
             speakWord(onForeignLanguage: !areLabelsReversed)
         } else {
             sender.setImage(UIImage(named: "play-button"), for: [])
+            UIApplication.shared.isIdleTimerDisabled = false
         }
     }
     
@@ -89,11 +115,17 @@ class CardsViewController: UIViewController {
         if worldLabel.text == "No words added..." {
             nextWord()
         }
+        if wordOnCard?.isFavorite ?? false {
+            star.setImage(UIImage(named: "starFilled"), for: [])
+        } else {
+            star.setImage(UIImage(named: "starEmpty"), for: [])
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         isAutoPlayEnabled = false
         synth.stopSpeaking(at: .immediate)
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! ChangeCollectionTableViewController
@@ -126,6 +158,11 @@ class CardsViewController: UIViewController {
             }
         } else {
             worldLabel.text = "No words added..."
+        }
+        if wordOnCard?.isFavorite ?? false {
+            star.setImage(UIImage(named: "starFilled"), for: [])
+        } else {
+            star.setImage(UIImage(named: "starEmpty"), for: [])
         }
     }
     

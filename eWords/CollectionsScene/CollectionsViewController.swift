@@ -35,6 +35,9 @@ class CollectionsViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.object(forKey: "appVersion") == nil {
+            showTutorial()
+        }
         performSegue(withIdentifier: "showWordsNoAnim", sender: nil)
 
     }
@@ -45,17 +48,18 @@ class CollectionsViewController: UICollectionViewController {
             let destination = segue.destination as! WordsViewController
             justLaunchedApp = false
             destination.collectionWords = nil
+            destination.collectionName = "My words"
         } else if selectedIndexPath?.row == 1 {
             let destination = segue.destination as! WordsViewController
             destination.collectionWords = getAllWords()
-        } else if selectedIndexPath?.row == collectionView.numberOfItems(inSection: 0) - 1 {
-            
-        } else {
+            destination.collectionName = "All words"
+        } else if selectedIndexPath?.row != collectionView.numberOfItems(inSection: 0) - 1 {
             let destination = segue.destination as! WordsViewController
             let boughtCollections = GeneralData.sharedInstance.boughtCollections
             let cellsCollectionNumber = (selectedIndexPath?.row ?? 2) - 2
             let collectionData = GeneralData.sharedInstance.makeCollectionDataSmaller(collection: GeneralData.sharedInstance.collectionsData[boughtCollections[cellsCollectionNumber]]!)
             destination.collectionWords = collectionData
+            destination.collectionName = "\(boughtCollections[cellsCollectionNumber])"
         }
         
     }
@@ -123,6 +127,11 @@ class CollectionsViewController: UICollectionViewController {
         numberOfBoughtCollections = GeneralData.sharedInstance.boughtCollections.count
         collectionView.reloadData()
         
+    }
+    func showTutorial() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
     }
     func getAllWords() -> [Word] {
         let userWords = GeneralData.sharedInstance.userWords ?? []

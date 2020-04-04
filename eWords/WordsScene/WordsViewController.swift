@@ -24,6 +24,7 @@ class WordsViewController: UIViewController, UITableViewDataSource, UITableViewD
             GeneralData.sharedInstance.userWords = newValue
         }
     }
+    var collectionName = ""
     var collectionWords: [Word]?
     var areLabelsReversed: Bool {
         get {
@@ -60,6 +61,7 @@ class WordsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = collectionName
         tableView1.dataSource = self
         tableView1.delegate = self
         if collectionWords != nil {
@@ -222,10 +224,12 @@ class WordsViewController: UIViewController, UITableViewDataSource, UITableViewD
         alert.addTextField { (textField) in
             textField.placeholder = "Foreign language's word"
             textField.text = self.rememberedWord?.foreignWord ?? ""
+            textField.autocapitalizationType = .sentences
         }
         alert.addTextField { (textField2) in
             textField2.placeholder = "Native language's word"
             textField2.text = self.rememberedWord?.nativeWord ?? ""
+            textField2.autocapitalizationType = .sentences
         }
         
         let textFields = alert.textFields
