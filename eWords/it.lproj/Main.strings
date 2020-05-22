@@ -1,0 +1,357 @@
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "4R2-H4-TIk"; */
+"4R2-H4-TIk.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "4nF-yx-aie"; */
+"4nF-yx-aie.title" = "Item";
+
+/* Class = "UILabel"; text = "No words added..."; ObjectID = "4qw-Ex-DqP"; */
+"4qw-Ex-DqP.text" = "No words added...";
+
+/* Class = "UILabel"; text = "Wrong answers:"; ObjectID = "51B-Ma-NtM"; */
+"51B-Ma-NtM.text" = "Wrong answers:";
+
+/* Class = "UILabel"; text = "Click on the dictionary if you do not know the translation"; ObjectID = "5S7-6p-VI8"; */
+"5S7-6p-VI8.text" = "Tocca dizionario se non conosci la traduzione";
+
+/* Class = "UIBarButtonItem"; title = "Change collection"; ObjectID = "5sB-xa-Ww8"; */
+"5sB-xa-Ww8.title" = "Change collection";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5yh-Oa-v61"; */
+"5yh-Oa-v61.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Collections"; ObjectID = "6i3-FF-NGF"; */
+"6i3-FF-NGF.title" = "Collections";
+
+/* Class = "UINavigationItem"; title = "Buy Collections"; ObjectID = "6l8-Ny-RQ3"; */
+"6l8-Ny-RQ3.title" = "Buy Collections";
+
+/* Class = "UILabel"; text = "Select a collection..."; ObjectID = "6mh-nc-ZFa"; */
+"6mh-nc-ZFa.text" = "Select a collection...";
+
+/* Class = "UIBarButtonItem"; title = "Collections"; ObjectID = "7Qs-7L-WCm"; */
+"7Qs-7L-WCm.title" = "Collections";
+
+/* Class = "UILabel"; text = "Question 1/10"; ObjectID = "7Qy-Be-RF3"; */
+"7Qy-Be-RF3.text" = "Question 1/10";
+
+/* Class = "UILabel"; text = "Homeless man"; ObjectID = "AMj-6P-rSq"; */
+"AMj-6P-rSq.text" = "Homeless man";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Ajx-d4-ZfD"; */
+"Ajx-d4-ZfD.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Cards"; ObjectID = "AuX-xN-YVq"; */
+"AuX-xN-YVq.title" = "Cards";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "BdB-GJ-xx4"; */
+"BdB-GJ-xx4.title" = "Item";
+
+/* Class = "UILabel"; text = "1000"; ObjectID = "C0S-It-DjR"; */
+"C0S-It-DjR.text" = "1000";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Caz-y0-9qA"; */
+"Caz-y0-9qA.text" = "Label";
+
+/* Class = "UILabel"; text = "Яблоко"; ObjectID = "Coe-qr-63b"; */
+"Coe-qr-63b.text" = "Яблоко";
+
+/* Class = "UILabel"; text = "A"; ObjectID = "D3I-xG-H4k"; */
+"D3I-xG-H4k.text" = "A";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DHO-9F-LqR"; */
+"DHO-9F-LqR.text" = "Label";
+
+/* Class = "UILabel"; text = "This pack contains the folowing words:"; ObjectID = "DSb-fw-3tp"; */
+"DSb-fw-3tp.text" = "This pack contains the folowing words:";
+
+/* Class = "UILabel"; text = "Click on the card to flip it!"; ObjectID = "DgL-Ox-hND"; */
+"DgL-Ox-hND.text" = "Tocca la carta per capovolgerla!";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ENC-IG-sHh"; */
+"ENC-IG-sHh.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Favorites"; ObjectID = "FCt-01-yO8"; */
+"FCt-01-yO8.title" = "Favorites";
+
+/* Class = "UITextView"; text = "You have read the tutorial and now you know almost all features of the app. You can click the button below to close tutorial and start learning new words."; ObjectID = "FrA-FA-qCC"; */
+"FrA-FA-qCC.text" = "Hai letto il tutorial e ora conosci quasi tutte le funzionalità dell'app. Tocca il pulsante in basso per chiudere il tutorial e iniziare a imparare nuove parole.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "GhR-yi-WPJ"; */
+"GhR-yi-WPJ.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Choose native laguage"; ObjectID = "HRH-XF-UYx"; */
+"HRH-XF-UYx.title" = "Choose native laguage";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HbJ-aW-gzD"; */
+"HbJ-aW-gzD.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "I6j-xZ-BMV"; */
+"I6j-xZ-BMV.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Collection: My Words"; ObjectID = "J3f-Ll-9qg"; */
+"J3f-Ll-9qg.text" = "Collection: My Words";
+
+/* Class = "UILabel"; text = "Food"; ObjectID = "J6b-Wu-mcX"; */
+"J6b-Wu-mcX.text" = "Food";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "J87-rh-umL"; */
+"J87-rh-umL.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "End exam"; ObjectID = "JqS-S4-9OK"; */
+"JqS-S4-9OK.normalTitle" = "End exam";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KTO-kf-7Cc"; */
+"KTO-kf-7Cc.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Question 1/10"; ObjectID = "KdO-2R-NlV"; */
+"KdO-2R-NlV.text" = "Question 1/10";
+
+/* Class = "UILabel"; text = "Choose foreign language"; ObjectID = "MSK-6g-yqU"; */
+"MSK-6g-yqU.text" = "Choose foreign language";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NEg-ff-073"; */
+"NEg-ff-073.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Homeless man"; ObjectID = "NKG-0I-5pe"; */
+"NKG-0I-5pe.text" = "Homeless man";
+
+/* Class = "UIButton"; normalTitle = "End exam"; ObjectID = "NLN-4c-Bng"; */
+"NLN-4c-Bng.normalTitle" = "End exam";
+
+/* Class = "UILabel"; text = "Waiting..."; ObjectID = "NhG-1N-wFc"; */
+"NhG-1N-wFc.text" = "Waiting...";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "O18-PC-yHa"; */
+"O18-PC-yHa.text" = "Label";
+
+/* Class = "UILabel"; text = "Buy collections of words or get some for FREE!"; ObjectID = "O3y-4e-BYL"; */
+"O3y-4e-BYL.text" = "Acquista raccolte di parole o scaricali GRATIS!";
+
+/* Class = "UILabel"; text = "Бездомный человек"; ObjectID = "O6z-IH-DzY"; */
+"O6z-IH-DzY.text" = "Бездомный человек";
+
+/* Class = "UILabel"; text = "Russian"; ObjectID = "OG4-N8-1Kx"; */
+"OG4-N8-1Kx.text" = "Russian";
+
+/* Class = "UINavigationItem"; title = "Exam"; ObjectID = "OXJ-Wk-pGE"; */
+"OXJ-Wk-pGE.title" = "Exam";
+
+/* Class = "UILabel"; text = "1/10 answer right"; ObjectID = "Op8-kF-HvJ"; */
+"Op8-kF-HvJ.text" = "1/10 answer right";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "Oti-gQ-uZs"; */
+"Oti-gQ-uZs.normalTitle" = "Close";
+
+/* Class = "UINavigationItem"; title = "Change collection"; ObjectID = "P3h-8H-faM"; */
+"P3h-8H-faM.title" = "Change collection";
+
+/* Class = "UILabel"; text = "Бездомный человек"; ObjectID = "Q4d-XF-Nib"; */
+"Q4d-XF-Nib.text" = "Бездомный человек";
+
+/* Class = "UILabel"; text = "Choose an option"; ObjectID = "Q4n-xs-OKx"; */
+"Q4n-xs-OKx.text" = "Choose an option";
+
+/* Class = "UILabel"; text = "Select your native language"; ObjectID = "QVA-mZ-Ofp"; */
+"QVA-mZ-Ofp.text" = "Select your native language";
+
+/* Class = "UILabel"; text = "Congratulations!"; ObjectID = "QeG-zY-pED"; */
+"QeG-zY-pED.text" = "Congratulazioni!";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "R2X-47-D5V"; */
+"R2X-47-D5V.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Buy Premium"; ObjectID = "SA0-tQ-uNk"; */
+"SA0-tQ-uNk.normalTitle" = "Buy Premium";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "SF7-tT-Kyq"; */
+"SF7-tT-Kyq.text" = "English";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "SaL-rm-6Ik"; */
+"SaL-rm-6Ik.title" = "Edit";
+
+/* Class = "UILabel"; text = "Waiting..."; ObjectID = "SgN-ne-FuE"; */
+"SgN-ne-FuE.text" = "Waiting...";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "TQM-km-XCB"; */
+"TQM-km-XCB.title" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "TjN-Du-IjZ"; */
+"TjN-Du-IjZ.title" = "Item";
+
+/* Class = "UITextView"; text = "This tutorial will guide you through the app and its features. After reading it, you will be able to learn any words in seconds!"; ObjectID = "Vh3-Dr-E74"; */
+"Vh3-Dr-E74.text" = "Questo tutorial ti guiderà attraverso l'app e le sue funzionalità. Dopo averlo letto, sarai in grado di imparare qualsiasi parola in pochi secondi!";
+
+/* Class = "UILabel"; text = "Choose type of the exam to start"; ObjectID = "X5s-j9-KHg"; */
+"X5s-j9-KHg.text" = "Choose type of the exam to start";
+
+/* Class = "UIButton"; normalTitle = "Mark these words as favorites"; ObjectID = "X5u-fW-Hv2"; */
+"X5u-fW-Hv2.normalTitle" = "Mark these words as favorites";
+
+/* Class = "UILabel"; text = "Sort words alphabetically, shuffle them randomly"; ObjectID = "XKQ-zZ-nDf"; */
+"XKQ-zZ-nDf.text" = "Ordina le parole in ordine alfabetico, mescolale in modo casuale";
+
+/* Class = "UITextField"; placeholder = "Enter translation"; ObjectID = "XwC-VU-Uxl"; */
+"XwC-VU-Uxl.placeholder" = "Enter translation";
+
+/* Class = "UICollectionViewController"; title = "Collections"; ObjectID = "YTK-vI-xaM"; */
+"YTK-vI-xaM.title" = "Collections";
+
+/* Class = "UIButton"; normalTitle = "Show Statistics"; ObjectID = "YUO-2d-NMM"; */
+"YUO-2d-NMM.normalTitle" = "Show Statistics";
+
+/* Class = "UIButton"; normalTitle = "Exit"; ObjectID = "ZOZ-2R-lv2"; */
+"ZOZ-2R-lv2.normalTitle" = "Exit";
+
+/* Class = "UILabel"; text = "Reverse Translation Labels"; ObjectID = "ZWB-jG-Hkd"; */
+"ZWB-jG-Hkd.text" = "Reverse Translation Labels";
+
+/* Class = "UILabel"; text = "Waiting..."; ObjectID = "Zcm-QO-yFi"; */
+"Zcm-QO-yFi.text" = "Waiting...";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZjW-MY-FMh"; */
+"ZjW-MY-FMh.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Exam"; ObjectID = "aNj-tI-o5N"; */
+"aNj-tI-o5N.title" = "Exam";
+
+/* Class = "UINavigationItem"; title = "Statistics"; ObjectID = "aTl-ua-UeX"; */
+"aTl-ua-UeX.title" = "Statistics";
+
+/* Class = "UIBarButtonItem"; title = "Show"; ObjectID = "aXv-6T-wqP"; */
+"aXv-6T-wqP.title" = "Show";
+
+/* Class = "UILabel"; text = "Mark yourself"; ObjectID = "b4J-5c-DF2"; */
+"b4J-5c-DF2.text" = "Mark yourself";
+
+/* Class = "UILabel"; text = "10% of all answers are right"; ObjectID = "bBr-8p-K8w"; */
+"bBr-8p-K8w.text" = "10% of all answers are right";
+
+/* Class = "UILabel"; text = "Select the language you want to learn"; ObjectID = "ba0-GL-iKC"; */
+"ba0-GL-iKC.text" = "Seleziona la lingua che vuoi imparare";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "bch-MV-iFH"; */
+"bch-MV-iFH.title" = "Item";
+
+/* Class = "UILabel"; text = "Tutorial"; ObjectID = "c6E-ws-YFZ"; */
+"c6E-ws-YFZ.text" = "Lezione";
+
+/* Class = "UIButton"; normalTitle = "End exam"; ObjectID = "c6w-1i-yGC"; */
+"c6w-1i-yGC.normalTitle" = "End exam";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "dNF-Cq-egn"; */
+"dNF-Cq-egn.title" = "Settings";
+
+/* Class = "UILabel"; text = "Free"; ObjectID = "dZh-fH-MYp"; */
+"dZh-fH-MYp.text" = "Free";
+
+/* Class = "UILabel"; text = "Mark:"; ObjectID = "eMw-iZ-2Iz"; */
+"eMw-iZ-2Iz.text" = "Mark:";
+
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "eW7-Vi-ORf"; */
+"eW7-Vi-ORf.title" = "Favorites";
+
+/* Class = "UILabel"; text = "In the upper field, write a foreign word"; ObjectID = "fYX-ls-hZz"; */
+"fYX-ls-hZz.text" = "Nel campo superiore, scrivi una parola straniera";
+
+/* Class = "UIButton"; normalTitle = "Close tutorial"; ObjectID = "fgr-jm-z7s"; */
+"fgr-jm-z7s.normalTitle" = "Close tutorial";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "gfb-Qh-ecK"; */
+"gfb-Qh-ecK.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Statistics"; ObjectID = "h4N-JX-4wy"; */
+"h4N-JX-4wy.title" = "Statistics";
+
+/* Class = "UILabel"; text = "In the bottom field write the translation"; ObjectID = "hEq-Bj-bWC"; */
+"hEq-Bj-bWC.text" = "Nel campo inferiore scrivi la traduzione";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "hOw-bv-Xvb"; */
+"hOw-bv-Xvb.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Exit"; ObjectID = "hx2-mP-dsb"; */
+"hx2-mP-dsb.normalTitle" = "Exit";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "i1J-4T-WwH"; */
+"i1J-4T-WwH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "To switch to cards mode click here"; ObjectID = "ixF-u6-Ere"; */
+"ixF-u6-Ere.text" = "Per passare alla modalità carte toccare qui";
+
+/* Class = "UILabel"; text = "Welcome to eWords!"; ObjectID = "k66-ap-FT7"; */
+"k66-ap-FT7.text" = "Benvenuto in eWords!";
+
+/* Class = "UIButton"; normalTitle = "Free"; ObjectID = "kMr-SR-GWV"; */
+"kMr-SR-GWV.normalTitle" = "Free";
+
+/* Class = "UIButton"; normalTitle = "Exit"; ObjectID = "kSI-Zq-OmT"; */
+"kSI-Zq-OmT.normalTitle" = "Exit";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "lfn-87-QSU"; */
+"lfn-87-QSU.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Hide"; ObjectID = "mMX-ly-BYq"; */
+"mMX-ly-BYq.title" = "Hide";
+
+/* Class = "UILabel"; text = "Flash card background"; ObjectID = "mUe-27-SAg"; */
+"mUe-27-SAg.text" = "Flash card background";
+
+/* Class = "UINavigationItem"; title = "My words"; ObjectID = "nJL-BQ-abK"; */
+"nJL-BQ-abK.title" = "My words";
+
+/* Class = "UILabel"; text = "To add a word press +"; ObjectID = "nQQ-jQ-cOk"; */
+"nQQ-jQ-cOk.text" = "Per aggiungere una parola premere +";
+
+/* Class = "UILabel"; text = "On the street"; ObjectID = "nnF-j1-ejM"; */
+"nnF-j1-ejM.text" = "On the street";
+
+/* Class = "UILabel"; text = "Write an answer"; ObjectID = "oFl-Rk-EQx"; */
+"oFl-Rk-EQx.text" = "Write an answer";
+
+/* Class = "UILabel"; text = "Show and hide translation"; ObjectID = "oPe-kW-1qX"; */
+"oPe-kW-1qX.text" = "Mostra e nascondi traduzioni";
+
+/* Class = "UITabBarItem"; title = "Statisctics"; ObjectID = "q4l-XV-12J"; */
+"q4l-XV-12J.title" = "Statisctics";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "qX9-UF-PWm"; */
+"qX9-UF-PWm.title" = "Item";
+
+/* Class = "UILabel"; text = "Choose native language"; ObjectID = "rGC-gv-qM7"; */
+"rGC-gv-qM7.text" = "Choose native language";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "sYk-OF-Vwl"; */
+"sYk-OF-Vwl.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Other translations"; ObjectID = "sfa-Ox-nzs"; */
+"sfa-Ox-nzs.normalTitle" = "Other translations";
+
+/* Class = "UITabBarItem"; title = "Cards"; ObjectID = "stc-3v-tOf"; */
+"stc-3v-tOf.title" = "Cards";
+
+/* Class = "UITabBarItem"; title = "Collections"; ObjectID = "tWM-PQ-w5B"; */
+"tWM-PQ-w5B.title" = "Collections";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tbn-PU-IJC"; */
+"tbn-PU-IJC.title" = "Item";
+
+/* Class = "UILabel"; text = "Flash cards tempo"; ObjectID = "txS-db-VuN"; */
+"txS-db-VuN.text" = "Flash cards tempo";
+
+/* Class = "UILabel"; text = "Question 0/0"; ObjectID = "u9J-uN-iQe"; */
+"u9J-uN-iQe.text" = "Question 0/0";
+
+/* Class = "UINavigationItem"; title = "Cards"; ObjectID = "ubz-06-X56"; */
+"ubz-06-X56.title" = "Cards";
+
+/* Class = "UILabel"; text = "Choose native language"; ObjectID = "w5H-py-5qH"; */
+"w5H-py-5qH.text" = "Choose native language";
+
+/* Class = "UILabel"; text = "Waiting..."; ObjectID = "xSE-Pm-mGx"; */
+"xSE-Pm-mGx.text" = "Waiting...";
+
+/* Class = "UIButton"; normalTitle = "Delete all your words"; ObjectID = "z8D-gL-WjC"; */
+"z8D-gL-WjC.normalTitle" = "Delete all your words";
+
+/* Class = "UILabel"; text = "Exam results"; ObjectID = "zRS-f3-sV3"; */
+"zRS-f3-sV3.text" = "Exam results";

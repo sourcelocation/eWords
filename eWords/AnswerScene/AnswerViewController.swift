@@ -85,6 +85,11 @@ class AnswerViewController: UIViewController {
         editButton.isEnabled = isShowingUserWords
         indexOfWord = words?.firstIndex{$0 === word} ?? 0
         updateLabels()
+        if word?.isFavorite ?? false {
+            starButton.image = UIImage(named: "starFilled")
+        } else {
+            starButton.image = UIImage(named: "starEmpty")
+        }
     }
     func updateLabels() {
         word = words?[indexOfWord]
@@ -98,10 +103,14 @@ class AnswerViewController: UIViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "Foreign language's word"
             textField.text = self.words?[self.indexOfWord].foreignWord
+            textField.autocapitalizationType = .sentences
+            textField.autocorrectionType = .yes
         }
         alert.addTextField { (textField2) in
             textField2.placeholder = "Native language's word"
             textField2.text = self.words?[self.indexOfWord].nativeWord
+            textField2.autocorrectionType = .yes
+            textField2.autocapitalizationType = .sentences
         }
         
         let textFields = alert.textFields

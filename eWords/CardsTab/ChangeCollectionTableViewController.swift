@@ -33,7 +33,7 @@ class ChangeCollectionTableViewController: UITableViewController {
             let cellsCollectionNumber = indexPath.row - 2
             let collectionsShort = GeneralData.sharedInstance.makeCollectionDataSmaller(collection: GeneralData.sharedInstance.collectionsData[boughtCollections[cellsCollectionNumber]]!)
             cardsViewController?.words = collectionsShort
-            cell.textLabel?.text = boughtCollections[indexPath.row]
+            cell.textLabel?.text = boughtCollections[indexPath.row - 2]
         }
         return cell
     }
@@ -57,6 +57,7 @@ class ChangeCollectionTableViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
         
     }
+    
     func getAllWords() -> [Word] {
         let userWords = GeneralData.sharedInstance.userWords ?? []
         let boughtCollections = GeneralData.sharedInstance.boughtCollections

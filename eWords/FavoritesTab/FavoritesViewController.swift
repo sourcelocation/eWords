@@ -109,6 +109,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.present(answerAlert, animated: true) {
             answerAlert.view.superview?.isUserInteractionEnabled = true
             answerAlert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+            if GeneralData.sharedInstance.autoDismissAnswer {
+                DispatchQueue.main.asyncAfter(deadline: .now() + GeneralData.sharedInstance.autoDismissTime / 10 - 0.2) {
+                    answerAlert.dismiss(animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -174,8 +179,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         tableView1.reloadData()
     }
     func sortWords() {
-        favorites = favorites!.sorted{ $0.foreignWord!.lowercased() < $1.foreignWord!.lowercased() }
-        tableView1.reloadData()
+        if areLabelsReversed {
+            favorites = favorites!.sorted{ $0.nativeWord!.lowercased() < $1.nativeWord!.lowercased() }
+            tableView1.reloadData()
+        } else {
+            favorites = favorites!.sorted{ $0.foreignWord!.lowercased() < $1.foreignWord!.lowercased() }
+            tableView1.reloadData()
+        }
     }
     func reverseLabels() {
         areLabelsReversed = !(areLabelsReversed)

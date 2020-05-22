@@ -8,13 +8,14 @@
 
 import UIKit
 import AVFoundation
-
+import SwiftMessages
+import GoogleMobileAds
 class CardsViewController: UIViewController {
     var timer = Timer()
     var wordOnCard:Word?
     let synth = AVSpeechSynthesizer()
     var isFlipped = false
-    var selectedCollection = "My words"
+    var selectedCollection = "All words"
     var isAutoPlayEnabled = false
     var areLabelsReversed: Bool {
         get {
@@ -25,6 +26,7 @@ class CardsViewController: UIViewController {
         }
     }
     var words:[Word]?
+    @IBOutlet weak var autoPlayButton: UIButton!
     @IBAction func starPressed(_ sender: UIButton) {
         if words?.count ?? 0 != 0 {
             let word = wordOnCard!
@@ -47,21 +49,31 @@ class CardsViewController: UIViewController {
             } else {
                 sender.setImage(UIImage(named: "starEmpty"), for: [])
             }
+        } else {
+            warnUser(title: "No words added!", messagge: "Please add a new word in \"My words\" or tap on a button \"Change collection\"")
         }
     }
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var star: UIButton!
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var worldLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        if wordOnCard == nil {
+            warnUser(title: "No words added!", messagge: "Please add a new word in \"My words\" or tap on a button \"Change collection\"")
+            return
+        }
         if !isAutoPlayEnabled {
             nextWord()
         }
     }
     @IBAction func speakWordButtonPressed(_ sender: UIButton) {
+        if wordOnCard == nil {
+            warnUser(title: "No words added!", messagge: "Please add a new word in \"My words\" or tap on a button \"Change collection\"")
+            return
+        }
         if !isAutoPlayEnabled {
-            
             let utterance = AVSpeechUtterance(string: wordOnCard?.foreignWord ?? "")
             synth.stopSpeaking(at: AVSpeechBoundary.immediate)
             utterance.voice = AVSpeechSynthesisVoice(language: GeneralData.sharedInstance.foreignLanguageCode ?? "en-US")
@@ -70,6 +82,10 @@ class CardsViewController: UIViewController {
     }
     
     @IBAction func autoPlayButtonPressed(_ sender: UIButton) {
+        if wordOnCard == nil {
+            warnUser(title: "No words added!", messagge: "Please add a new word in \"My words\" or tap on a button \"Change collection\"")
+            return
+        }
         isAutoPlayEnabled.toggle()
         if isAutoPlayEnabled {
             UIApplication.shared.isIdleTimerDisabled = true
@@ -93,6 +109,9 @@ class CardsViewController: UIViewController {
             words = GeneralData.sharedInstance.userWords
         }
         nextWord()
+        bannerView.adUnitID = "ca-app-pub-6804648379784599/8889298488"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         cardView.clipsToBounds = true
         cardView.layer.cornerRadius = 15
         cardView.layer.borderColor = UIColor.black.cgColor
@@ -125,6 +144,7 @@ class CardsViewController: UIViewController {
         super.viewWillDisappear(animated)
         isAutoPlayEnabled = false
         synth.stopSpeaking(at: .immediate)
+        autoPlayButton.setImage(UIImage(named: "play-button"), for: [])
         UIApplication.shared.isIdleTimerDisabled = false
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -146,6 +166,25 @@ class CardsViewController: UIViewController {
     func reverseLabels() {
         areLabelsReversed = !(areLabelsReversed)
     }
+    func warnUser(title: String, messagge: String) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+        
+        var config = SwiftMessages.Config()
+        config.presentationStyle = .bottom
+        
+        let view = MessageView.viewFromNib(layout: .cardView)
+        view.configureTheme(.warning)
+        view.configureDropShadow()
+        view.button?.backgroundColor = .clear
+        view.button?.setTitle("", for: [])
+//        view.configureContent(title: "No words added!", body: "Please add a new word in \"My words\" or tap on a button \"Change collection\"")
+        view.configureContent(title: title, body: messagge)
+
+        view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+        SwiftMessages.show(config:config, view: view)
+    }
     func nextWord() {
         isFlipped = false
         if words?.count != 0, words != nil {
@@ -158,6 +197,7 @@ class CardsViewController: UIViewController {
             }
         } else {
             worldLabel.text = "No words added..."
+            isAutoPlayEnabled = false
         }
         if wordOnCard?.isFavorite ?? false {
             star.setImage(UIImage(named: "starFilled"), for: [])
@@ -167,6 +207,10 @@ class CardsViewController: UIViewController {
     }
     
     @objc func flipCard() {
+        if wordOnCard == nil {
+            warnUser(title: "No words added!", messagge: "Please add a new word in \"My words\" or tap on a button \"Change collection\"")
+            return
+        }
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         UIView.transition(with: cardView, duration: 0.75, options: transitionOptions, animations: {
             self.cardView.isHidden = true
@@ -215,16 +259,20 @@ class CardsViewController: UIViewController {
 extension CardsViewController: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if isAutoPlayEnabled {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Change `2.0` to the desired number of seconds.
-                if !self.isFlipped {
+            if !self.isFlipped {
+                DispatchQueue.main.asyncAfter(deadline: .now() + GeneralData.sharedInstance.cardsTempo) {
                     self.flipCard()
                     self.speakWord(onForeignLanguage: self.areLabelsReversed)
-                } else {
-                    self.nextWord()
-                    self.speakWord(onForeignLanguage: !self.areLabelsReversed)
                 }
-                
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    if self.isAutoPlayEnabled {
+                        self.nextWord()
+                        self.speakWord(onForeignLanguage: !self.areLabelsReversed)
+                    }
+                }
             }
+            
         }
     }
 }

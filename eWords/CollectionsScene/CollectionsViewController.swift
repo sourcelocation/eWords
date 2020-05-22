@@ -35,7 +35,7 @@ class CollectionsViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.object(forKey: "appVersion") == nil {
+        if !UserDefaults.standard.bool(forKey: "hasViewedTutorial") {
             showTutorial()
         }
         performSegue(withIdentifier: "showWordsNoAnim", sender: nil)
@@ -44,15 +44,17 @@ class CollectionsViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        if selectedIndexPath?.row == 0 || justLaunchedApp {
+        if selectedIndexPath?.row == 0 || (justLaunchedApp && !GeneralData.sharedInstance.firstTimeLaunched){
             let destination = segue.destination as! WordsViewController
             justLaunchedApp = false
             destination.collectionWords = nil
             destination.collectionName = "My words"
-        } else if selectedIndexPath?.row == 1 {
+        } else if selectedIndexPath?.row == 1 || (justLaunchedApp && GeneralData.sharedInstance.firstTimeLaunched) {
+            justLaunchedApp = false
             let destination = segue.destination as! WordsViewController
             destination.collectionWords = getAllWords()
             destination.collectionName = "All words"
+            destination.isViewingAllWords = true
         } else if selectedIndexPath?.row != collectionView.numberOfItems(inSection: 0) - 1 {
             let destination = segue.destination as! WordsViewController
             let boughtCollections = GeneralData.sharedInstance.boughtCollections
@@ -119,19 +121,28 @@ class CollectionsViewController: UICollectionViewController {
             cell.deleteButton.addTarget(self, action: #selector(deleteCollection(sender:)), for: .touchUpInside)
             cell.deleteButton.tag = indexPath.row
         }
+        
         return cell
     }
     @objc func deleteCollection(sender: UIButton) {
         let indexPathRow = sender.tag
         GeneralData.sharedInstance.boughtCollections.remove(at: indexPathRow - 2)
         numberOfBoughtCollections = GeneralData.sharedInstance.boughtCollections.count
+        UserDefaults.standard.set(GeneralData.sharedInstance.boughtCollections, forKey: "boughtCollectionsNew")
         collectionView.reloadData()
         
     }
     func showTutorial() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseLang")
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false, completion: nil)
+    }
+    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .bottom)
+    }
+
+    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItem(at: indexPath as IndexPath, animated: true)
     }
     func getAllWords() -> [Word] {
         let userWords = GeneralData.sharedInstance.userWords ?? []

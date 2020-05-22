@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -19,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         loadUserWords()
     }
 
@@ -51,24 +53,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         saveUserWords()
     }
     
-    func saveUserWords(){
-        let userWordsData = try? JSONEncoder().encode(GeneralData.sharedInstance.userWords)
-        let favoritesData = try? JSONEncoder().encode(GeneralData.sharedInstance.favoriteWords)
-        UserDefaults.standard.set(userWordsData, forKey: "userWords")
-        UserDefaults.standard.set(favoritesData, forKey: "favorites")
-    }
-    func loadUserWords(){
-        let userWordsData = UserDefaults.standard.data(forKey: "userWords")
-        let favoriteData = UserDefaults.standard.data(forKey: "favorites")
-        if userWordsData != nil {
-            let userWordsArray = try? JSONDecoder().decode([Word].self, from: userWordsData!)
-            GeneralData.sharedInstance.userWords = userWordsArray
-        }
-        if favoriteData != nil {
-            let favoriteArray = try? JSONDecoder().decode([Word].self, from: favoriteData!)
-            GeneralData.sharedInstance.favoriteWords = favoriteArray
-        }
-    }
+     func saveUserWords(){
+           let userWordsData = try? JSONEncoder().encode(GeneralData.sharedInstance.allUserWords)
+           let favoritesData = try? JSONEncoder().encode(GeneralData.sharedInstance.favoriteWords)
+           UserDefaults.standard.set(userWordsData, forKey: "allUserWords")
+           UserDefaults.standard.set(favoritesData, forKey: "favorites")
+           UserDefaults.standard.set(GeneralData.sharedInstance.nativeLanguageCode, forKey: "nativeLang")
+           UserDefaults.standard.set(GeneralData.sharedInstance.foreignLanguageCode, forKey: "foreignLang")
+       }
+       func loadUserWords(){
+           let userWordsData = UserDefaults.standard.data(forKey: "allUserWords")
+           let favoriteData = UserDefaults.standard.data(forKey: "favorites")
+           if userWordsData != nil {
+               let userWordsArray = try? JSONDecoder().decode([String:[Word]].self, from: userWordsData!)
+               GeneralData.sharedInstance.allUserWords = userWordsArray
+           }
+           if favoriteData != nil {
+               let favoriteArray = try? JSONDecoder().decode([Word].self, from: favoriteData!)
+               GeneralData.sharedInstance.favoriteWords = favoriteArray
+           }
+           if UserDefaults.standard.string(forKey: "foreignLang") != nil {
+               GeneralData.sharedInstance.foreignLanguageCode = UserDefaults.standard.string(forKey: "foreignLang")
+           }
+           if UserDefaults.standard.string(forKey: "nativeLang") != nil {
+               GeneralData.sharedInstance.nativeLanguageCode = UserDefaults.standard.string(forKey: "nativeLang")
+           }
+           if UserDefaults.standard.array(forKey: "boughtCollectionsNew") != nil {
+               GeneralData.sharedInstance.boughtCollections = UserDefaults.standard.array(forKey: "boughtCollectionsNew") as! [String]
+           }
+       }
 }
 
 

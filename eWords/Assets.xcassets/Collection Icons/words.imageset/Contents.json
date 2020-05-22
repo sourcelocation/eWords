@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "IMG_3585.PNG",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -22,11 +21,11 @@
           "value" : "dark"
         }
       ],
-      "filename" : "myWordsDark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "IMG_5150.PNG",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -47,6 +46,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "IMG_5151.PNG",
       "idiom" : "universal",
       "scale" : "2x"
     },
